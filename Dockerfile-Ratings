@@ -2,7 +2,6 @@ FROM node:12.18.1-slim
 RUN apt-get update -y
 RUN apt-get install git -y
 RUN apt-get install python3-pip -y
-RUN git clone https://github.com/CDPS-ETSIT/practica_creativa2.git
 WORKDIR practica_creativa2/bookinfo/src/ratings
 COPY package.json /opt/microservices/
 COPY ratings.js /opt/microservices/
