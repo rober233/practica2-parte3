@@ -1,12 +1,10 @@
 FROM node:12.18.1-slim
-RUN apt-get update -y
-RUN apt-get install python3-pip -y
-WORKDIR practica_creativa2/bookinfo/src/ratings
-COPY package.json /opt/microservices/
-COPY ratings.js /opt/microservices/
+WORKDIR /opt/microservices/
+COPY package.json bookinfo/src/ratings/* ./
+COPY ratings.js bookinfo/src/ratings/* ./
 RUN npm install
 ENV SERVICE_VERSION v1
 EXPOSE 9080
 
 
-CMD ["python3","/opt/microservices/ratings.js","9080"]
+CMD ["node","ratings.js","9080"]
